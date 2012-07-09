@@ -12,9 +12,9 @@ namespace TrainingTasks1
         public PasswordValidationResult Validate(string password)
         {
             PasswordValidationResult result = new PasswordValidationResult();
-            Regex regNumber = new Regex(@"^(?=.*\d)$");
-            Regex regUpper = new Regex(@"^(?=.*[A-Z])$");
-
+            Regex regNumber = new Regex(@"[0-9]+");
+            Regex regUpper = new Regex(@"[A-Z]+");
+           
             result.IsValid = true;
 
             if (password.Length < 1)
@@ -35,6 +35,14 @@ namespace TrainingTasks1
             {
                 result.IsValid = false;
                 result.Message = "Password must have an uppercase";
+                return result;
+            }
+
+            
+            if (!(password.Length > 9))
+            {
+                result.IsValid = false;
+                result.Message = "Password must have at least 10 characters";
                 return result;
             }
 

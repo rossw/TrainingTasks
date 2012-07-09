@@ -47,6 +47,15 @@ namespace TrainingTasks1
             Assert.AreEqual(result.Message, "Password must have an uppercase");
         }
 
+        [Test]
+        public void A_Password_Must_Have_At_Least_10_Characters()
+        {
+            IPasswordValidation validation = new PasswordValidators();
+            var result = validation.Validate("aaAa1");
+
+            Assert.False(result.IsValid);
+            Assert.AreEqual(result.Message, "Password must have at least 10 characters");
+        }
 
     }
 }
