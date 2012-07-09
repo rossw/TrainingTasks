@@ -57,5 +57,14 @@ namespace TrainingTasks1
             Assert.AreEqual(result.Message, "Password must have at least 10 characters");
         }
 
+        [Test]
+        public void A_Valid_Password_Should_Pass()
+        {
+            IPasswordValidation validation = new PasswordValidators();
+            var result = validation.Validate("aaAaasdasd1");
+
+            Assert.True(result.IsValid);
+        }
+
     }
 }
