@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="IPasswordValidation.cs" />
     <Compile Include="PasswordValidationResult.cs" />
+    <Compile Include="PasswordValidator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tests.cs" />
   </ItemGroup>

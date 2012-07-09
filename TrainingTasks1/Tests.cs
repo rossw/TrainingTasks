@@ -26,5 +26,16 @@ namespace TrainingTasks1
             Assert.AreEqual(result.Message, "Password cannot be blank");
         }
 
+
+        [Test]
+        public void A_Password_Must_Have_A_Number()
+        {
+            IPasswordValidation validation = new PasswordValidators();
+            var result = validation.Validate("aaaaaa");
+
+            Assert.False(result.IsValid);
+            Assert.AreEqual(result.Message, "Password must have a number");
+        }
+
     }
 }
