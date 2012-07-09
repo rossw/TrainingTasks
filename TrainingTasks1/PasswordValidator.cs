@@ -13,6 +13,7 @@ namespace TrainingTasks1
         {
             PasswordValidationResult result = new PasswordValidationResult();
             Regex regNumber = new Regex(@"^(?=.*\d)$");
+            Regex regUpper = new Regex(@"^(?=.*[A-Z])$");
 
             result.IsValid = true;
 
@@ -27,6 +28,13 @@ namespace TrainingTasks1
             {
                 result.IsValid = false;
                 result.Message = "Password must have a number";
+                return result;
+            }
+
+            if (!regUpper.IsMatch(password))
+            {
+                result.IsValid = false;
+                result.Message = "Password must have an uppercase";
                 return result;
             }
 
