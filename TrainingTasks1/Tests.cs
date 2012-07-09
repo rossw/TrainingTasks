@@ -37,5 +37,6 @@ namespace TrainingTasks1
             Assert.AreEqual(result.Message, "Password must have a number");
         }
 
+
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace TrainingTasks1
 {
@@ -11,6 +12,7 @@ namespace TrainingTasks1
         public PasswordValidationResult Validate(string password)
         {
             PasswordValidationResult result = new PasswordValidationResult();
+            Regex regNumber = new Regex(@"^(?=.*\d)$");
 
             result.IsValid = true;
 
@@ -18,7 +20,16 @@ namespace TrainingTasks1
             {
                 result.IsValid = false;
                 result.Message = "Password cannot be blank";
+                return result;
             }
+
+            if (!regNumber.IsMatch(password))
+            {
+                result.IsValid = false;
+                result.Message = "Password must have a number";
+                return result;
+            }
+
 
             return result;
 
