@@ -37,6 +37,16 @@ namespace TrainingTasks1
             Assert.AreEqual(result.Message, "Password must have a number");
         }
 
+        [Test]
+        public void A_Password_Must_Have_An_Uppercase()
+        {
+            IPasswordValidation validation = new PasswordValidators();
+            var result = validation.Validate("aaaa1");
+
+            Assert.False(result.IsValid);
+            Assert.AreEqual(result.Message, "Password must have an uppercase");
+        }
+
 
     }
 }
