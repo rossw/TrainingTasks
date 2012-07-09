@@ -19,11 +19,12 @@ namespace TrainingTasks1
         [Test]
         public void A_Blank_Password_Is_Not_Valid()
         {
-            IPasswordValidation validation = null;
+            IPasswordValidation validation = new PasswordValidators();
             var result = validation.Validate("");
 
             Assert.False(result.IsValid);
             Assert.AreEqual(result.Message, "Password cannot be blank");
         }
+
     }
 }
